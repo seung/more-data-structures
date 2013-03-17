@@ -3,24 +3,40 @@ var makeLinkedList = function(){
   var linkedList = {};
   linkedList.head = null;
   linkedList.tail = null;
-  // linkedList.index = 0;
 
   linkedList.addToTail = function(val){
-    if(linkedList.tail != null) {
-        // if there is existing node
-      linkedList[linkedList.tail++].next = linkedList.tail;
+    var newNode = makeNode(val);
+    if(linkedList.head == null) {
+      linkedList.head = newNode;
     } else {
-        // if there is no existing node
-      linkedList.head = 0;
-      linkedList.tail = 0;
+      var lastNode = linkedList.tail;
+      lastNode.next = newNode;
     }
-    linkedList[linkedList.tail] = makeNode(val);
+    linkedList.tail = newNode;
   };
 
   linkedList.removeHead = function(){
+    if(linkedList.head) {
+      var newHead = (linkedList.head).next;      
+      delete linkedList.head;
+      if (newHead == null) {
+        linkedList.tail = null;
+      }
+      linkedList.head = newHead;
+    } else {
+      throw new Error("Cannot remove head from an empty list.");
+    }
   };
 
-  linkedList.contains = function(){
+  linkedList.contains = function(val){
+    var nextNode = linkedList.head;
+    while(nextNode) {
+      if (nextNode.value === val) {
+        return true;
+      }
+      nextNode = nextNode.next;
+    }
+    return false;
   };
 
   return linkedList;
@@ -33,6 +49,14 @@ var makeNode = function(value){
 
 
   node.removeNextNode = function(){
+    if (this.next == null) {
+      throw new Error("There is no next node.");
+    } else {
+      var nextNode = this.next;
+      var followingNode = (this.next).next
+      delete this.next;
+      this.next = followingNode;
+    }
   };
 
   return node;

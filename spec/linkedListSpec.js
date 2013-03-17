@@ -1,5 +1,5 @@
 describe("linkedList", function() {
-  var linkedList;
+  var linkedList; 
 
   beforeEach(function() {
     linkedList = makeLinkedList();
@@ -16,5 +16,7 @@ describe("linkedList", function() {
     expect(linkedList.contains).toEqual(jasmine.any(Function));
   });
 
-  // add more tests here to test the functionality of linkedList
+  it('should add a new node to the end', function() {
+    expect(linkedList.addToTail(3)).toEqual(3);
+  });
 });

@@ -25,4 +25,3 @@ setPrototype.contains = function(aString){
 setPrototype.remove = function(aString){
   delete this._storage[aString];
 };
-

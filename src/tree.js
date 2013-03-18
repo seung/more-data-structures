@@ -1,4 +1,4 @@
-var makeTree = function(val){
+var makeTree = function(val) {
   var tree = Object.create(treeMethods);
   tree.value = val;
   tree.children = [];
@@ -7,12 +7,12 @@ var makeTree = function(val){
 
 var treeMethods = {};
 
-treeMethods.addChild = function(val){
+treeMethods.addChild = function(val) {
   var newtree = makeTree(val);
   this.children.push(newtree); 
 };
 
-treeMethods.contains = function(val){
+treeMethods.contains = function(val) {
   var found = false;
 
   var checkvalue = function(obj) {

@@ -1,5 +1,5 @@
 var HashTable = function(){
-  this._limit = 2;
+  this._limit = 8;
 
   // Use a limited array to store inserted elements.
   // It'll keep you from using too much space. Usage:
@@ -20,7 +20,7 @@ HashTable.prototype.insert = function(aString){
       throw new Error("Insert collision.");
     }
   } else {
-    this._storage[key] = aString;    
+    this._storage[key] = aString;
   }
 };
 

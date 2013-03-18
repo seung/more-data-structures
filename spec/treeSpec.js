@@ -31,5 +31,4 @@ describe("tree", function() {
     tree.addChild(6);
     expect(tree.contains(43)).toBeFalsy();
   });
-  
 });

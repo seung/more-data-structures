@@ -17,7 +17,7 @@ var makeLinkedList = function(){
 
   linkedList.removeHead = function(){
     if(linkedList.head) {
-      var newHead = (linkedList.head).next;      
+      var newHead = (linkedList.head).next;
       delete linkedList.head;
       if (newHead == null) {
         linkedList.tail = null;
@@ -53,7 +53,7 @@ var makeNode = function(value){
       throw new Error("There is no next node.");
     } else {
       var nextNode = this.next;
-      var followingNode = (this.next).next
+      var followingNode = nextNode.next;
       delete this.next;
       this.next = followingNode;
     }

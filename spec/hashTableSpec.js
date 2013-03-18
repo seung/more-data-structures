@@ -25,8 +25,7 @@ describe("hashTable", function() {
     hashTable.remove("jonathan");
     expect(function(){ 
       hashTable.retrieve("jonathan");
-    }).toThrow(new Error("Cannot retrieve string."));        
-//    expect(hashTable.retrieve("jonathan")).toEqual(null);        
+    }).toThrow(new Error("Cannot retrieve string."));
   })
 
   it('should throw error retrieving a non-existant entry', function() {
@@ -39,18 +38,15 @@ describe("hashTable", function() {
     var some_string = "jonathan"; //key evaluates to 5
     hashTable.insert(some_string);
     expect(function(){ 
-      debugger;    
       hashTable.insert("sally"); // key evaluates to 5
-    }).toThrow(new Error("Insert collision."));            
+    }).toThrow(new Error("Insert collision."));
   })
 
   it('should throw error if duplicating an entry', function() {
     var some_string = "jonathan"; //key evaluates to 5
     hashTable.insert(some_string);
     expect(function(){ 
-      debugger;    
       hashTable.insert("jonathan"); // key evaluates to 5
-    }).toThrow(new Error("Duplicate entry attempted."));            
+    }).toThrow(new Error("Duplicate entry attempted."));
   })
-
 });

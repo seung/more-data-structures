@@ -1,12 +1,5 @@
 var HashTable = function(){
   this._limit = 8;
-
-  // Use a limited array to store inserted elements.
-  // It'll keep you from using too much space. Usage:
-  //
-  //   limitedArray.set(3, 'hi');
-  //   limitedArray.get(3); // alerts 'hi'
-  //
   this._storage = makeLimitedArray(this._limit);
 };
 
@@ -18,10 +11,10 @@ HashTable.prototype.insert = function(aString){
     } else {
       console.log("running collision resolution");
       throw new Error("Insert collision.");
-    }
+    };
   } else {
     this._storage[key] = aString;
-  }
+  };
 };
 
 HashTable.prototype.retrieve = function(aString){
@@ -45,6 +38,3 @@ HashTable.prototype.remove = function(aString){
 HashTable.prototype.fetchKey = function(aString) {
   return getIndexBelowMaxForKey(aString, this._limit);
 };
-// NOTE: For this code to work, you will NEED the code from hashTableHelpers.js
-// Start by loading those files up and playing with the functions it provides.
-// You don't need to understand how they work, only their interface is important to you
